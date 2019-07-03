@@ -10,18 +10,22 @@ namespace GetDisplayUserInfo1
             Console.WriteLine(question);
             string answer = Console.ReadLine();
             return answer;
-        }            
+        }              
+        static int getUserNumber(string question)
+        {
+            Console.WriteLine(question);
+            string response = Console.ReadLine();
+            int answer = Int32.Parse(response);
+            return answer;
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, I would like some basic information from you.");
             string firstName = getUserName("What is your first name?");
-            string lastName = getUserName("What is your last name?");                      
-                                                      
-            Console.WriteLine("What is your favorite number?");
-            int favoriteNumber = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("How many pets do you have?");
-            int petCount = Convert.ToInt32(Console.ReadLine());
+            string lastName = getUserName("What is your last name?");  
+                                                           
+            int favoriteNumber = getUserNumber("What is your favorite number?");                      
+            int petCount = getUserNumber("How many pets do you have?");
 
             if (petCount > 1)
             {
