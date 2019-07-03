@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace GetDisplayUserInfo1
+{
+    class Program
+    {        
+            static string getUserName(string question)
+        {
+            Console.WriteLine(question);
+            string answer = Console.ReadLine();
+            return answer;
+        }              
+        static int getUserNumber(string question)
+        {
+            Console.WriteLine(question);
+            string response = Console.ReadLine();
+            int answer = Int32.Parse(response);
+            return answer;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, I would like some basic information from you.");
+            string firstName = getUserName("What is your first name?");
+            string lastName = getUserName("What is your last name?");  
+                                                           
+            int favoriteNumber = getUserNumber("What is your favorite number?");                      
+            int petCount = getUserNumber("How many pets do you have?");
+
+            if (petCount > 1)
+            {
+                List<string> petName = new List<string>();
+                for (int i = 0; i < petCount; i++)
+                {
+                    Console.WriteLine("What is the name of your pet? ", i + 1);
+                    petName.Add(Console.ReadLine());
+                }
+                Console.WriteLine("Your name is " + firstName + " " + lastName + ".");
+                Console.WriteLine("Your favorite number is " + favoriteNumber);
+                Console.WriteLine("You have " + petCount + " " + "pet(s)");
+                Console.WriteLine("Your pet's names are:");
+                petName.ForEach(Console.WriteLine);
+            }
+            else if(petCount == 0)
+            {                
+                Console.WriteLine("Your name is " + firstName + " " + lastName + ".");
+                Console.WriteLine("Your favorite number is " + favoriteNumber);
+                Console.WriteLine("You do not have any pets.");
+            }
+            else if(petCount == 1)
+            {
+                Console.WriteLine("What is the name of your pet?");
+                string petName = Console.ReadLine();
+                Console.WriteLine("Your name is " + firstName + " " + lastName + ".");
+                Console.WriteLine("Your favorite number is " + favoriteNumber + ".");
+                Console.WriteLine("Your pet's name is " + petName + ".");
+
+            }
+            
+            
+
+        }
+    }
+}
